@@ -1,3 +1,9 @@
 {
-  "ignores": ["AGENTS.md", ".cursorrules", "node_modules/**"]
+  "ignores": [
+    "AGENTS.md",
+    ".cursorrules",
+    "node_modules/**",
+    ".agents/**",
+    ".opencode/**",
+  ],
 }
