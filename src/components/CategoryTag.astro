@@ -1,0 +1,83 @@
+---
+interface Props {
+  category: string;
+  size?: "sm" | "md";
+}
+
+const { category, size = "sm" } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  vue: "Vue",
+  react: "React",
+  javascript: "JavaScript",
+  css: "CSS",
+  webpack: "Webpack",
+  engineering: "工程化",
+  performance: "性能优化",
+  ai: "AI",
+};
+
+const label = categoryLabels[category] || category;
+---
+
+<span class:list={["tag", `tag-${category}`, `tag-${size}`]}>{label}</span>
+
+<style>
+  .tag {
+    display: inline-block;
+    font-weight: 600;
+    border-radius: 6px;
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+  }
+
+  .tag-sm {
+    font-size: 0.75rem;
+    padding: 0.15rem 0.55rem;
+  }
+
+  .tag-md {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.75rem;
+  }
+
+  .tag-vue {
+    color: #166534;
+    background: #dcfce7;
+  }
+
+  .tag-react {
+    color: #0e7490;
+    background: #cffafe;
+  }
+
+  .tag-javascript {
+    color: #854d0e;
+    background: #fef9c3;
+  }
+
+  .tag-css {
+    color: #1e40af;
+    background: #dbeafe;
+  }
+
+  .tag-webpack {
+    color: #1e3a5f;
+    background: #e0f2fe;
+  }
+
+  .tag-engineering {
+    color: #1e3a5f;
+    background: #e0f2fe;
+  }
+
+  .tag-performance {
+    color: #991b1b;
+    background: #fee2e2;
+  }
+
+  .tag-ai {
+    color: #6b21a8;
+    background: #f3e8ff;
+  }
+</style>

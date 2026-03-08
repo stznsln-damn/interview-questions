@@ -8,6 +8,9 @@
   // MD024 - 允许不同层级下出现相同标题
   "MD024": { "siblings_only": true },
 
+  // MD025 - 允许多个 H1（frontmatter title + 正文 H1 共存）
+  "MD025": false,
+
   // MD033 - 允许内联 HTML（MD 中偶尔需要 <br> 等）
   "MD033": false,
 
@@ -24,5 +27,5 @@
   "MD050": { "style": "asterisk" },
 
   // MD060 - 表格列样式，关闭（中文表格间距不统一很常见）
-  "MD060": false
+  "MD060": false,
 }

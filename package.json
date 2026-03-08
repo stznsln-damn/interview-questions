@@ -1,9 +1,12 @@
 {
   "name": "test-interview",
+  "type": "module",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "前端面试题知识库",
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "lint": "markdownlint-cli2 \"**/*.md\" \"#node_modules\"",
     "lint:fix": "markdownlint-cli2 --fix \"**/*.md\" \"#node_modules\"",
     "format": "prettier --write \"**/*.md\"",
@@ -27,6 +30,17 @@
     "url": "https://github.com/stznsln-damn/interview-questions/issues"
   },
   "homepage": "https://github.com/stznsln-damn/interview-questions#readme",
+  "dependencies": {
+    "@shikijs/rehype": "^4.0.1",
+    "@shikijs/transformers": "^4.0.1",
+    "astro": "^5.7.10"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.4.3",
     "@commitlint/config-conventional": "^20.4.3",

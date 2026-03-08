@@ -1,0 +1,51 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import CategoryTag from "../components/CategoryTag.astro";
+
+interface Props {
+  title: string;
+  category: string;
+}
+
+const { title, category } = Astro.props;
+---
+
+<BaseLayout title={`${title} - 前端面试题`}>
+  <article class="post">
+    <header class="post-header">
+      <div class="post-meta">
+        <a href="/" class="back-link">&larr; 返回首页</a>
+        <CategoryTag category={category} />
+      </div>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post {
+    padding-bottom: 3rem;
+  }
+
+  .post-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .back-link {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+</style>

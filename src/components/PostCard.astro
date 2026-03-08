@@ -1,0 +1,65 @@
+---
+import CategoryTag from "./CategoryTag.astro";
+
+interface Props {
+  title: string;
+  category: string;
+  slug: string;
+  order: number;
+}
+
+const { title, category, slug, order } = Astro.props;
+---
+
+<a href={`/posts/${slug}/`} class="post-card">
+  <span class="post-index">#{order}</span>
+  <div class="post-card-body">
+    <h3 class="post-card-title">{title}</h3>
+    <CategoryTag category={category} />
+  </div>
+</a>
+
+<style>
+  .post-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: var(--color-bg);
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s,
+      transform 0.15s;
+    color: var(--color-text);
+  }
+
+  .post-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 12px rgba(37, 99, 235, 0.08);
+    transform: translateY(-1px);
+  }
+
+  .post-index {
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    min-width: 2rem;
+    padding-top: 0.2rem;
+    font-family: var(--font-mono);
+  }
+
+  .post-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .post-card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+</style>

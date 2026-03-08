@@ -1,0 +1,152 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import CategoryTag from "../components/CategoryTag.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("posts");
+
+const categoryOrder = ["vue", "react", "javascript", "css", "webpack", "engineering", "performance", "ai"];
+const categoryNames: Record<string, string> = {
+  vue: "Vue",
+  react: "React",
+  javascript: "JavaScript",
+  css: "CSS",
+  webpack: "Webpack",
+  engineering: "工程化",
+  performance: "性能优化",
+  ai: "AI",
+};
+
+// Group posts by category, preserving defined order
+const grouped = new Map<string, typeof allPosts>();
+for (const cat of categoryOrder) {
+  const posts = allPosts
+    .filter((p) => p.data.category === cat)
+    .sort((a, b) => a.data.order - b.data.order);
+  if (posts.length > 0) grouped.set(cat, posts);
+}
+// Append any unlisted categories
+for (const post of allPosts) {
+  const cat = post.data.category;
+  if (!grouped.has(cat)) {
+    grouped.set(cat, allPosts.filter((p) => p.data.category === cat).sort((a, b) => a.data.order - b.data.order));
+  }
+}
+
+const totalCount = allPosts.length;
+---
+
+<BaseLayout title="前端面试题知识库">
+  <section class="hero">
+    <h1>前端面试题知识库</h1>
+    <p class="hero-desc">
+      收录 <strong>{totalCount}</strong> 道高频前端面试题，涵盖 Vue、React、JavaScript、CSS 等核心领域。
+    </p>
+    <div class="tag-list">
+      {
+        [...grouped.entries()].map(([cat, posts]) => (
+          <a href={`#${cat}`} class="tag-link">
+            <CategoryTag category={cat} size="md" />
+            <span class="tag-count">{posts.length}</span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  {
+    [...grouped.entries()].map(([cat, posts]) => (
+      <section class="category-section" id={cat}>
+        <h2 class="category-title">
+          <CategoryTag category={cat} size="md" />
+          <span>{categoryNames[cat] || cat}</span>
+          <span class="category-count">{posts.length} 题</span>
+        </h2>
+        <div class="post-grid">
+          {posts.map((post) => (
+            <PostCard
+              title={post.data.title}
+              category={post.data.category}
+              slug={post.id}
+              order={post.data.order}
+            />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 0 2.5rem;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 2.5rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-desc {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-link {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: transform 0.15s;
+  }
+
+  .tag-link:hover {
+    transform: scale(1.05);
+  }
+
+  .tag-count {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  .category-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .category-count {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-left: auto;
+  }
+
+  .post-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+</style>
