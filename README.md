@@ -1,0 +1,92 @@
+# Interview Questions
+
+前端开发工程师面试题集，涵盖 HTML、CSS、JavaScript、TypeScript、Vue、React 等主流前端技术栈。
+
+## 项目结构
+
+```text
+├── questions/          # 面试题文档
+│   ├── ai-*            # AI 相关
+│   ├── css-*           # CSS 相关
+│   ├── javascript-*    # JavaScript 相关
+│   ├── performance-*   # 性能优化相关
+│   ├── react-*         # React 相关
+│   ├── vue-*           # Vue 相关
+│   └── webpack-*       # Webpack 相关
+├── AGENTS.md           # AI Agent 配置
+├── commitlint.config.js
+├── .markdownlint-cli2.jsonc
+├── .prettierrc
+└── package.json
+```
+
+## 题目分类
+
+| 分类        | 数量 | 说明                              |
+| ----------- | ---- | --------------------------------- |
+| Vue         | 4    | Vue 生命周期、响应性、Diff 算法等 |
+| JavaScript  | 2    | WeakMap、滚动交互等               |
+| React       | 1    | Hooks 设计模式                    |
+| Performance | 1    | 大数据量渲染优化                  |
+| Webpack     | 1    | Loader 机制                       |
+| AI          | 1    | AI 使用与前沿概念                 |
+
+## 使用方式
+
+### 安装依赖
+
+```bash
+pnpm install
+```
+
+### 格式化 & 校验
+
+```bash
+# Markdown 语法检查
+pnpm lint
+
+# Markdown 语法自动修复
+pnpm lint:fix
+
+# 格式化 Markdown 文件
+pnpm format
+
+# 检查格式是否符合规范
+pnpm format:check
+```
+
+### 提交规范
+
+项目使用 [Conventional Commits](https://www.conventionalcommits.org/) 规范，通过 `commitlint` + `husky` 在提交时自动校验。
+
+支持的 commit 类型：
+
+- `feat` - 新增面试题
+- `fix` - 修复内容错误
+- `docs` - 文档变更
+- `style` - 格式调整（不影响内容）
+- `refactor` - 内容重构
+- `chore` - 工具配置变更
+
+### 文档命名规则
+
+```text
+{分类}-{序号}-{简要描述}.md
+```
+
+示例：`vue-1-setup中解构props丢失响应性.md`
+
+- 分类序号独立计数，不同分类之间互不影响
+- 描述尽量简洁，体现题目核心内容
+
+## 工具链
+
+- **pnpm** - 包管理器
+- **markdownlint-cli2** - Markdown 语法校验
+- **Prettier** - 代码格式化
+- **husky** + **lint-staged** - Git hooks，提交前自动格式化
+- **commitlint** - 提交信息规范校验
+
+## License
+
+ISC
