@@ -1,3 +1,9 @@
+---
+title: "如何使用 WeakMap 解决循环引用？"
+category: "javascript"
+order: 1
+---
+
 # 如何使用 WeakMap 解决循环引用？
 
 ## 先理解问题：什么场景会出现循环引用

@@ -1,3 +1,9 @@
+---
+title: "Vue 的 Diff 为何采用同层比较，而非跨层？"
+category: "vue"
+order: 4
+---
+
 # Vue 的 Diff 为何采用同层比较，而非跨层？
 
 ## 核心结论

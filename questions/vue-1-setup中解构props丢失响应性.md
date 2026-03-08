@@ -1,3 +1,9 @@
+---
+title: "为何 setup() 中直接解构 props 会丢失响应性？"
+category: "vue"
+order: 1
+---
+
 # 为何 setup() 中直接解构 props 会丢失响应性？
 
 ## 核心原因

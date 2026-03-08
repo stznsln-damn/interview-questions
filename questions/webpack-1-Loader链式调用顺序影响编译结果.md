@@ -1,3 +1,9 @@
+---
+title: "Webpack 中的 Loader，链式调用顺序会影响编译结果吗？"
+category: "webpack"
+order: 1
+---
+
 # Webpack 中的 Loader，链式调用顺序会影响编译结果吗？
 
 ## 结论：会，而且顺序至关重要

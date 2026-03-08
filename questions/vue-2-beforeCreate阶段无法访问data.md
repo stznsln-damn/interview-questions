@@ -1,3 +1,9 @@
+---
+title: "Vue2 中，为什么在 beforeCreate 阶段无法访问 data？"
+category: "vue"
+order: 2
+---
+
 # Vue2 中，为什么在 beforeCreate 阶段无法访问 data？
 
 ## 直接原因

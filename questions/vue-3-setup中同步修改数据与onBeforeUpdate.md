@@ -1,3 +1,9 @@
+---
+title: "setup 函数中同步修改响应式数据，会触发子组件的 onBeforeUpdate 吗？"
+category: "vue"
+order: 3
+---
+
 # setup 函数中同步修改响应式数据，会触发子组件的 onBeforeUpdate 吗？
 
 ## 结论：不会
