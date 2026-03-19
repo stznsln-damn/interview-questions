@@ -24,14 +24,14 @@
 
 | 分类        | 数量 | 说明                                                                                            |
 | ----------- | ---- | ----------------------------------------------------------------------------------------------- |
-| Vue         | 7    | setup中解构props丢失响应性、beforeCreate阶段无法访问data、setup中同步修改数据与onBeforeUpdate等 |
-| JavaScript  | 4    | 使用WeakMap解决循环引用、滚动位置实现目录节点自动高亮、大文件分片上传与断点续传等               |
-| Engineering | 3    | Vite热更新HMR原理、Webpack Tree Shaking与Vite DCE的异同、Hash模式对SEO的影响与预渲染优化        |
+| Vue         | 10   | setup中解构props丢失响应性、beforeCreate阶段无法访问data、setup中同步修改数据与onBeforeUpdate等 |
+| JavaScript  | 7    | 使用WeakMap解决循环引用、滚动位置实现目录节点自动高亮、大文件分片上传与断点续传等               |
+| Engineering | 5    | Vite热更新HMR原理、Webpack Tree Shaking与Vite DCE的异同、Hash模式对SEO的影响与预渲染优化等      |
+| AI          | 1    | AI的使用和前沿概念                                                                              |
 | CSS         | 1    | 实现固定宽高比容器                                                                              |
+| Performance | 1    | 十万条数据表格组件的设计与优化                                                                  |
 | React       | 1    | 实现支持撤销重做的Hook                                                                          |
 | Webpack     | 1    | Loader链式调用顺序影响编译结果                                                                  |
-| Performance | 1    | 十万条数据表格组件的设计与优化                                                                  |
-| AI          | 1    | AI的使用和前沿概念                                                                              |
 
 ## 使用方式
 
